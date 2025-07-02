@@ -1,0 +1,63 @@
+body {
+  font-family: "Quicksand", sans-serif; }
+
+.bg-marrom-100 {
+  background-color: #2a2d3c;
+  color: #fff; }
+
+.bg-rosa-100 {
+  background-color: #b24c3e;
+  color: #fff; }
+
+.bg-azul-100 {
+  background-color: #042342;
+  color: #fff; }
+
+.bg-azul-300 {
+  background-color: #040b24;
+  color: #fff; }
+
+.btn-marrom-300 {
+  background-color: #313c4a;
+  color: #fff; }
+  .btn-marrom-300:hover {
+    background-color: #2a2d3c;
+    color: #fff; }
+
+.btn-azul-100 {
+  background-color: #040b24;
+  color: #fff; }
+  .btn-azul-100:hover {
+    background-color: #0c345c;
+    color: #fff; }
+
+.btn-rosa-100 {
+  background-color: #b24c3e;
+  color: #fff; }
+  .btn-rosa-100:hover {
+    background-color: #f27459;
+    color: #fff; }
+
+.text-azul-100 {
+  color: #042342; }
+
+.text-azul-300 {
+  color: #040b24; }
+
+.text-rosa-100 {
+  color: #b24c3e; }
+
+.text-marrom-100 {
+  color: #2a2d3c; }
+
+.menu-rosa-100 {
+  color: #b24c3e; }
+  .menu-rosa-100:hover {
+    color: #040b24; }
+
+.menu-azul-300 {
+  color: #040b24; }
+  .menu-azul-300:hover {
+    color: #040b24; }
+
+/*# sourceMappingURL=style.css.map */

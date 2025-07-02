@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Sobre - Guia Cardume{% endblock %}
+{% block meta_description %}Conheça o Guia Cardume, um blog sobre finanças, economia e investimentos, com dicas simples e práticas baseadas em experiências reais.{% endblock %}
+{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block content %}
+<section class="py-5" aria-label="Sobre o Guia Cardume">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-11">
+        <h1 class="fw-bold text-center mb-4 text-azul-300 display-5">Sobre o Guia Cardume</h1>
+
+        <div class="fs-5 text-muted" style="line-height: 1.8;">
+          <p>
+            O <strong>Guia Cardume</strong> é um blog criado para compartilhar tudo o que venho aprendendo sobre <strong>finanças, economia e investimentos</strong>.
+            Escrevo com base nas minhas experiências, estudos e na vontade de tornar esses temas mais claros e acessíveis para todos.
+          </p>
+
+          <p>
+            O nome vem de várias inspirações: o <strong>cardume</strong>, que nada junto e se protege; os <strong>barcos pesqueiros</strong>, que enfrentam o desconhecido em busca do essencial;
+            e até o universo curioso do livro <em>O Guia do Mochileiro das Galáxias</em>, onde o acaso e a ordem andam lado a lado.
+          </p>
+
+          <p>
+            Aqui, o dinheiro é tratado como parte da vida real — com erros, acertos, dúvidas e aprendizados. A proposta é ajudar você a entender melhor como lidar com o que ganha, gasta, guarda e sonha.
+          </p>
+
+          <p>
+            Se você quer aprender com calma, sem complicações, e ter com quem trocar ideias no caminho — o <strong>Guia Cardume</strong> é pra você. Seja bem-vindo. Estamos juntos nessa jornada.
+          </p>
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="{% url 'lista_posts' %}" class="btn btn-azul-100 rounded-pill px-4 py-2 shadow-sm">Ver todos os artigos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

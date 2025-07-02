@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Todos os Artigos - Guia Cardume{% endblock %}
+
+{% block meta_description %}
+Confira todos os artigos publicados no Guia Cardume com dicas sobre finanças pessoais, economia e investimentos. Navegue por categorias e aprenda a cuidar melhor do seu dinheiro.
+{% endblock %}
+
+{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block og_title %}Todos os Artigos - Guia Cardume{% endblock %}
+{% block og_description %}Veja todos os artigos do Guia Cardume sobre finanças, investimentos e organização financeira pessoal.{% endblock %}
+{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block twitter_title %}Todos os Artigos - Guia Cardume{% endblock %}
+{% block twitter_description %}Veja todos os artigos do Guia Cardume sobre finanças, investimentos e organização financeira pessoal.{% endblock %}
+
+
+{% block content %}
+<main class="container py-4" role="main" aria-label="Lista de artigos do blog Guia Cardume">
+
+  <!-- Cabeçalho da Página -->
+  <header class="mb-5 text-center">
+    <h1 class="fw-bold text-dark">Todos os Artigos</h1>
+    <p class="text-muted fs-5">Explore todos os conteúdos publicados no blog sobre finanças, economia pessoal e investimentos.</p>
+  </header>
+
+  <!-- Seção de Filtro de Categorias -->
+  <section aria-label="Filtro por categoria">
+    <div class="bg-rosa-100 p-4 rounded-4 shadow-sm mb-5">
+      <h2 class="h5 fw-bold text-center mb-3">Filtrar por Categoria</h2>
+      <nav aria-label="Categorias de artigos">
+        <ul class="list-inline text-center mb-0">
+          <li class="list-inline-item mx-2">
+            <a href="{% url 'lista_posts' %}" 
+               class="text-decoration-none {% if not categoria_id %}fw-bold text-white{% else %}text-white{% endif %}">
+              Todas as Categorias
+            </a>
+          </li>
+          {% for categoria in categorias %}
+            <li class="list-inline-item mx-2">
+              <a href="?categoria={{ categoria.id }}"
+                 class="text-decoration-none {% if categoria.id|stringformat:'s' == categoria_id|stringformat:'s' %}fw-bold text-white{% else %}text-white{% endif %}"
+                 aria-label="Ver artigos da categoria {{ categoria.nome }}">
+                {{ categoria.nome }}
+                <span class="badge bg-azul-100 rounded-pill">{{ categoria.num_posts }}</span>
+              </a>
+            </li>
+          {% endfor %}
+          {% if categoria_id %}
+            <li class="list-inline-item mx-2">
+              <a href="{% url 'lista_posts' %}" class="text-azul-100 small text-decoration-none" aria-label="Limpar filtro de categoria">
+                ✖ Limpar filtro
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Grid de Posts -->
+  <section aria-label="Artigos disponíveis">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for post in posts %}
+        {% include 'blog/_card_post.html' %}
+      {% empty %}
+        <div class="col">
+          <p class="text-center text-muted">Nenhum post encontrado nesta categoria.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
+{% endblock %}

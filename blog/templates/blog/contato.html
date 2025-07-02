@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Contato - Guia Cardume{% endblock %}
+{% block meta_description %}
+Entre em contato com o Guia Cardume para dúvidas, sugestões ou parcerias. Estamos juntos nessa jornada financeira.
+{% endblock %}
+{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block content %}
+<section class="py-5 my-5" aria-label="Formulário de contato">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Cabeçalho da página -->
+        <h1 class="fw-bold text-center text-azul-100 mb-3">Fale Comigo</h1>
+        <p class="text-muted text-center mb-4 fs-5">
+          Tem dúvidas, sugestões ou quer bater um papo sobre finanças? Preencha o formulário abaixo. Responderei o quanto antes.
+        </p>
+
+        <!-- Formulário -->
+        <form method="post" class="bg-light p-4 p-md-5 rounded-4 shadow-sm border" aria-label="Formulário de contato">
+          {% csrf_token %}
+
+          <!-- Nome -->
+          <div class="mb-3">
+            <label for="nome" class="form-label">Seu nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite seu nome completo">
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Seu e-mail</label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder="exemplo@email.com">
+          </div>
+
+          <!-- Mensagem -->
+          <div class="mb-3">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua mensagem aqui..."></textarea>
+          </div>
+
+          <!-- Botão -->
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-azul-100 btn-lg rounded-pill px-5">Enviar mensagem</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

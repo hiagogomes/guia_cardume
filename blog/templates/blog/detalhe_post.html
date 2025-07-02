@@ -1,0 +1,65 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.titulo }} - Guia Cardume{% endblock %}
+{% block meta_description %}{{ post.conteudo|striptags|truncatewords:25 }}{% endblock %}
+{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block content %}
+<article class="container my-5" style="max-width: 900px;" aria-label="Artigo completo - {{ post.titulo }}">
+  <!-- Cabeçalho do post -->
+  <header class="mb-5 border-bottom pb-3">
+    <h1 class="fw-bold display-5 text-rosa-100">{{ post.titulo }}</h1>
+    <p class="text-muted small mb-0">
+      Publicado em {{ post.criado_em|date:"d/m/Y H:i" }}
+      {% if post.categoria %}
+        <span class="badge bg-gradient bg-azul-100 text-uppercase ms-3 fw-semibold px-3 py-1 rounded-pill" style="font-size: 0.75rem;">
+          {{ post.categoria.nome }}
+        </span>
+      {% endif %}
+    </p>
+  </header>
+
+  <!-- Imagem destacada -->
+  {% if post.imagem %}
+    <figure class="mb-5 text-center" role="group" aria-label="Imagem destacada do post">
+      <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" class="img-fluid rounded-4 shadow-sm" style="max-height: 420px; object-fit: cover;">
+    </figure>
+  {% endif %}
+
+  <!-- Conteúdo principal -->
+  <section class="fs-5 text-secondary lh-lg" style="letter-spacing: 0.02em;">
+    {{ post.conteudo|safe }}
+  </section>
+
+<!-- BLOCO DO AUTOR AQUI -->
+ <hr class="my-5">
+
+<!-- Bloco de informações do autor -->
+<section class="d-flex align-items-center gap-3 bg-azul-300 rounded-4 shadow-sm p-4" aria-label="Informações do autor">
+  {% if post.autor.foto %}
+    <img src="{{ post.autor.foto.url }}" alt="Foto de {{ post.autor.nome }}" class="rounded-circle" width="70" height="70">
+  {% endif %}
+  <div>
+    <h2 class="h6 mb-1 fw-bold text-white">{{ post.autor.nome }}</h2>
+    {% if post.autor.instagram %}
+      <a href="{{ post.autor.instagram }}" class="d-inline-block me-3 text-decoration-none text-rosa-100 fw-bold" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    {% endif %}
+    {% if post.autor.linkedin %}
+      <a href="{{ post.autor.linkedin }}" class="d-inline-block text-decoration-none text-rosa-100 fw-bold" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+  <!-- Botão de retorno -->
+  <div class="mt-5 text-center">
+    <a href="{% url 'home' %}" class="btn btn-azul-100 btn-lg rounded-pill px-5">
+      &larr; Voltar para a Home
+    </a>
+  </div>
+</article>
+{% endblock %}

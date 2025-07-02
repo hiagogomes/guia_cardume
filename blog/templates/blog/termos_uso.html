@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block title %}Termos de Uso - Guia Cardume{% endblock %}
+{% block meta_description %}Saiba quais são os termos de uso do Guia Cardume e como utilizar nosso conteúdo com responsabilidade e ética.{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+  <h1 class="fw-bold mb-4 text-center text-azul-100">Termos de Uso</h1>
+
+  <div class="text-muted fs-6" style="line-height: 1.8;">
+    <p>Ao acessar o <strong>Guia Cardume</strong>, você concorda com os seguintes termos de uso:</p>
+
+    <h2 class="h5 mt-4 text-dark">1. Uso do Conteúdo</h2>
+    <p>Todo o conteúdo deste site é de caráter informativo e educativo. É proibido copiar ou reproduzir qualquer parte sem autorização.</p>
+
+    <h2 class="h5 mt-4 text-dark">2. Responsabilidade</h2>
+    <p>As informações aqui publicadas refletem a opinião do autor e não constituem recomendação financeira. Sempre consulte profissionais especializados.</p>
+
+    <h2 class="h5 mt-4 text-dark">3. Comentários</h2>
+    <p>Comentários ofensivos, spam ou fora do contexto serão removidos sem aviso prévio.</p>
+
+    <h2 class="h5 mt-4 text-dark">4. Modificações</h2>
+    <p>Estes termos podem ser modificados a qualquer momento. O uso contínuo do site implica na aceitação das mudanças.</p>
+
+    <p class="mt-4">Se tiver dúvidas, visite nossa <a href="{% url 'contato' %}">página de contato</a>.</p>
+  </div>
+</section>
+{% endblock %}

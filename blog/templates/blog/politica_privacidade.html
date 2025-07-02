@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Sobre - Guia Cardume{% endblock %}
+{% block meta_description %}Conheça o Guia Cardume, um blog sobre finanças, economia e investimentos, com dicas simples e práticas baseadas em experiências reais.{% endblock %}
+{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}
+
+{% block content %}
+<section class="py-5" aria-label="Sobre o Guia Cardume">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-11">
+        <h1 class="fw-bold text-center mb-4 text-azul-100 display-5">Política de Privacidade</h1>
+        <div class="fs-5 text-muted" style="line-height: 1.8;">
+          <p>
+            Esta Política de Privacidade descreve como o Guia Cardume coleta, usa, armazena e protege as informações fornecidas por você ao acessar este site.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">1. Coleta de Informações</h2>
+          <p>
+            Podemos coletar informações como nome, e-mail e dados de navegação (como endereço IP e páginas acessadas), especialmente ao preencher formulários ou comentar artigos.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">2. Uso das Informações</h2>
+          <p>
+            As informações coletadas são utilizadas para melhorar sua experiência no site, responder mensagens, personalizar conteúdo e enviar atualizações, quando autorizado.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">3. Compartilhamento de Dados</h2>
+          <p>
+            O Guia Cardume não vende, aluga ou compartilha seus dados com terceiros, exceto quando exigido por lei.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">4. Cookies</h2>
+          <p>
+            Utilizamos cookies para analisar a navegação no site e melhorar o conteúdo. Você pode desativar os cookies nas configurações do seu navegador.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">5. Segurança</h2>
+          <p>
+            Aplicamos medidas para proteger suas informações, mas nenhum sistema é 100% seguro. Por isso, recomendamos que você também adote boas práticas de segurança digital.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">6. Alterações nesta Política</h2>
+          <p>
+            Esta política pode ser atualizada periodicamente. A versão mais recente estará sempre disponível nesta página.
+          </p>
+
+          <h2 class="h5 fw-bold mt-4">7. Contato</h2>
+          <p>
+            Em caso de dúvidas sobre esta política ou sobre seus dados, entre em contato pelo <a href="{% url 'contato' %}">formulário de contato</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

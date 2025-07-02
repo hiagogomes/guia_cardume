@@ -1,0 +1,96 @@
+$font-stack: 'Quicksand', sans-serif;
+
+$rosa-100: #b24c3e;
+$rosa-200: #f27459;
+$azul-100: #042342;
+$azul-200: #0c345c;
+$azul-300: #040b24;
+$marrom-100: #2a2d3c;
+$marrom-200: #2a2d3d;
+$marrom-300: #313c4a;
+
+body{
+    font-family: $font-stack;
+}
+
+.bg-marrom-100 {
+    background-color: $marrom-100;
+    color: #fff;
+}
+
+.bg-rosa-100 {
+    background-color: $rosa-100;
+    color: #fff;
+}
+
+.bg-azul-100 {
+    background-color: $azul-100;
+    color: #fff;
+}
+
+.bg-azul-300 {
+    background-color: $azul-300;
+    color: #fff;
+}
+
+.btn-marrom-300 {
+    background-color: $marrom-300;
+    color: #fff;
+
+    &:hover {
+        background-color: $marrom-100;
+        color: #fff;
+    }
+}
+
+.btn-azul-100 {
+    background-color: $azul-300;
+    color: #fff;
+
+    &:hover {
+        background-color: $azul-200;
+        color: #fff;
+    }
+}
+
+.btn-rosa-100 {
+    background-color: $rosa-100;
+    color: #fff;
+
+    &:hover {
+        background-color: $rosa-200;
+        color: #fff;
+    }
+}
+
+.text-azul-100 {
+    color: $azul-100;
+}
+
+.text-azul-300 {
+    color: $azul-300;
+}
+
+.text-rosa-100 {
+    color: $rosa-100;
+}
+
+.text-marrom-100 {
+    color: $marrom-100;
+}
+
+.menu-rosa-100 {
+    color: $rosa-100;
+
+    &:hover {
+        color: $azul-300;
+    }
+}
+
+.menu-azul-300 {
+    color: $azul-300;
+
+    &:hover {
+        color: $azul-300;
+    }
+}
