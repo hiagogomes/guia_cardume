@@ -4,8 +4,11 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-MEDIA_URL = '/media/'  # URL pública para acessar as imagens
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # pasta onde os uploads serão salvos
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 ALLOWED_HOSTS = []
 
@@ -24,17 +27,44 @@ INSTALLED_APPS = [
 
 CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': [
-            'heading', '|',
-            'bold', 'italic', 'link', 'underline', '|',
-            'bulletedList', 'numberedList', '|',
-            'blockQuote', 'codeBlock', '|',
-            'insertTable', 'imageUpload', '|',
-            'undo', 'redo',
-        ],
+        'toolbar': {
+            'items': [
+                'heading', '|',
+                'bold', 'italic', 'underline', 'strikethrough', '|',
+                'link', 'imageUpload', 'mediaEmbed', '|',
+                'bulletedList', 'numberedList', 'todoList', '|',
+                'blockQuote', 'codeBlock', 'sourceEditing', '|',
+                'insertTable', 'undo', 'redo', 'highlight', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor',
+            ],
+            'shouldNotGroupWhenFull': True
+        },
+        'image': {
+            'toolbar': [
+                'imageTextAlternative', 'imageStyle:alignLeft',
+                'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side'
+            ],
+            'styles': ['alignLeft', 'alignCenter', 'alignRight']
+        },
+        'table': {
+            'contentToolbar': [
+                'tableColumn', 'tableRow', 'mergeTableCells',
+                'tableProperties', 'tableCellProperties'
+            ]
+        },
+        'heading': {
+            'options': [
+                {'model': 'paragraph', 'title': 'Parágrafo', 'class': 'ck-heading_paragraph'},
+                {'model': 'heading1', 'view': 'h1', 'title': 'Título 1', 'class': 'ck-heading_heading1'},
+                {'model': 'heading2', 'view': 'h2', 'title': 'Título 2', 'class': 'ck-heading_heading2'},
+                {'model': 'heading3', 'view': 'h3', 'title': 'Título 3', 'class': 'ck-heading_heading3'},
+            ]
+        },
         'language': 'pt-br',
     }
 }
+
+CKEDITOR_5_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
 
 MIDDLEWARE = [
@@ -101,9 +131,5 @@ LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_TZ = True
-
-STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

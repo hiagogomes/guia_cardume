@@ -1,9 +1,20 @@
 from django.contrib import admin
 from .models import Post, Comentario, Categoria, MensagemContato, Autor
 from django.utils.html import format_html
+from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = '__all__'
+        widgets = {
+            'conteudo': CKEditor5Widget(config_name='default'),
+        }
 
 @admin.register(Post) # registra o modelo com o painel admin
 class PostAdmin(admin.ModelAdmin):
+    form = PostForm  # aqui você aplica o formulário com o CKEditor
     list_display = ('titulo', 'autor', 'criado_em')
     prepopulated_fields = {'slug': ('titulo',)}  # preenche automaticamente o slug com base no título
 

@@ -36,24 +36,30 @@
  <hr class="my-5">
 
 <!-- Bloco de informações do autor -->
-<section class="d-flex align-items-center gap-3 bg-azul-300 rounded-4 shadow-sm p-4" aria-label="Informações do autor">
+<section class="d-flex align-items-center gap-4 bg-azul-300 rounded-4 shadow-sm p-4 flex-wrap" aria-label="Informações do autor">
   {% if post.autor.foto %}
-    <img src="{{ post.autor.foto.url }}" alt="Foto de {{ post.autor.nome }}" class="rounded-circle" width="70" height="70">
+    <img src="{{ post.autor.foto.url }}" alt="Foto de {{ post.autor.nome }}" class="rounded-circle shadow" width="80" height="80" loading="lazy">
   {% endif %}
-  <div>
-    <h2 class="h6 mb-1 fw-bold text-white">{{ post.autor.nome }}</h2>
-    {% if post.autor.instagram %}
-      <a href="{{ post.autor.instagram }}" class="d-inline-block me-3 text-decoration-none text-rosa-100 fw-bold" target="_blank" rel="noopener">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-    {% endif %}
-    {% if post.autor.linkedin %}
-      <a href="{{ post.autor.linkedin }}" class="d-inline-block text-decoration-none text-rosa-100 fw-bold" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-    {% endif %}
+
+  <div class="text-white">
+    <p class="mb-1 fw-semibold small text-uppercase text-white">Criado por:</p>
+    <h2 class="h5 mb-2 fw-bold">{{ post.autor.nome }}</h2>
+    
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      {% if post.autor.instagram %}
+        <a href="{{ post.autor.instagram }}" class="text-decoration-none text-rosa-100 d-flex align-items-center gap-1 fw-semibold" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      {% endif %}
+      {% if post.autor.linkedin %}
+        <a href="{{ post.autor.linkedin }}" class="text-decoration-none text-rosa-100 d-flex align-items-center gap-1 fw-semibold" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      {% endif %}
+    </div>
   </div>
 </section>
+
 
   <!-- Botão de retorno -->
   <div class="mt-5 text-center">
